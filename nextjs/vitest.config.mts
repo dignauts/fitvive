@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [tsconfigPaths(), react()],
   test: {
     environment: 'jsdom',
+    globals: true,
     setupFiles: ['./vitest.setup.ts'],
     include: [
-      'tests/int/**/*.int.spec.ts',
-      'tests/unit/**/*.unit.spec.ts'
+      'tests/int/**/*.int.spec.{ts,tsx}',
+      'tests/unit/**/*.unit.spec.{ts,tsx}'
     ]
   }
 });

@@ -1,9 +1,5 @@
-import { capitalize } from '@/utils/capitalize-util';
+import BaseIconComponent from '@/components/icons/base-icon-component';
 
-const Home = () => {
-  console.log(capitalize('darkster cos tam'));
-
-  return <div>Home page</div>;
-};
+const Home = () => <BaseIconComponent />;
 
 export default Home;

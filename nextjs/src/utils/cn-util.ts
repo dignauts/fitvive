@@ -6,6 +6,12 @@ import { capitalize } from '@/utils/capitalize-util';
 type Modifier = boolean | number | string | null | undefined;
 type Modifiers = Record<string, Modifier>;
 
+type CnOptions = {
+  element?: string;
+  modifiers?: Readonly<Modifiers>;
+  additionalClassNames?: ClassValue;
+}
+
 const checkModifier = (value: unknown): value is string | number | true => (
   value !== false && value != null
 );
@@ -14,14 +20,12 @@ const PREFIX: string = 'Dgn';
 
 export const cn = (
   block: string,
-  element?: string,
-  modifiers?: Readonly<Modifiers>,
-  additionalClassNames?: ClassValue
+  options?: CnOptions
 ): string => {
   const blockWithPrefix = `${PREFIX}${capitalize(block)}`;
-  const base = element ? `${blockWithPrefix}__${element}` : blockWithPrefix;
+  const base = options?.element ? `${blockWithPrefix}__${options?.element}` : blockWithPrefix;
 
-  const mods = Object.entries(modifiers ?? {})
+  const mods = Object.entries(options?.modifiers ?? {})
     .filter(([, value]) => checkModifier(value))
     .map(([key, value]) =>
       value === true
@@ -29,5 +33,5 @@ export const cn = (
         : `${base}--${key}${capitalize(value as number | string)}`
     );
 
-  return clsx(base, mods, additionalClassNames);
+  return clsx(base, mods, options?.additionalClassNames);
 };
