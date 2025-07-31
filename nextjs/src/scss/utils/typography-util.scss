@@ -1,0 +1,50 @@
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+
+$font_weights: (
+  'regular': 400,
+  'medium': 500,
+  'semi': 600,
+  'bold': 700,
+  'extra': 800
+);
+
+@function get_typography_settings($name, $weight: null) {
+  $font_size_variable: "--dgn-text-#{$name}";
+  $line_height_variable: "--dgn-text-#{$name}-line-height";
+  
+  $font_size: var(#{$font_size_variable});
+  $line_height: var(#{$line_height_variable});
+  
+  @return (
+    $font_size,
+    $line_height,
+    if($weight != null, $weight, null)
+  );
+}
+
+@function font_weight($weight) {
+  @if $weight == null {
+    @return null;
+  }
+  
+  @if map.has-key($font_weights, $weight) {
+    @return map.get($font_weights, $weight);
+  }
+  
+  @warn "Unknown font weight: '#{$weight}'. Available options: #{map.keys($font_weights)}";
+  @return null;
+}
+
+@mixin typography($name, $weight: null) {
+  $values: get_typography_settings($name, $weight);
+  $font_weight: list.nth($values, 3);
+  
+  font-size: list.nth($values, 1);
+  line-height: list.nth($values, 2);
+  
+  @if $font_weight != null {
+    font-weight: $font_weight;
+  }
+}

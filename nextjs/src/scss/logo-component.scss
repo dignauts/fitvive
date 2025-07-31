@@ -1,0 +1,17 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnLogo {
+  align-items: center;
+  display: flex;
+  gap: spacing(1.5);
+  max-width: fit-content;
+
+  &__logomark {
+    background-color: color("primary", 500);
+    border-radius: spacing(2);
+    color: color("secondary", 500);
+    max-width: fit-content;
+    padding: spacing(1.5);
+  }
+}

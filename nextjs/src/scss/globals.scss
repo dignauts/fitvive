@@ -1,0 +1,63 @@
+:root {
+  /* Colors | Neutral */
+  --dgn-color-neutral-50: #FFFFFF;
+  --dgn-color-neutral-100: #F8F8F8;
+  --dgn-color-neutral-200: #EDEDED;
+  --dgn-color-neutral-300: #D9D9D9;
+  --dgn-color-neutral-400: #BFBFBF;
+  --dgn-color-neutral-500: #999999;
+  --dgn-color-neutral-600: #7F7F7F;
+  --dgn-color-neutral-700: #666666;
+  --dgn-color-neutral-800: #333333;
+  --dgn-color-neutral-900: #000000;
+
+  /* Colors | Primary */
+  --dgn-color-primary-50: #F9FFE6;
+  --dgn-color-primary-100: #F2FFC2;
+  --dgn-color-primary-200: #E8FF94;
+  --dgn-color-primary-300: #D8FF5C;
+  --dgn-color-primary-400: #C9FF25;
+  --dgn-color-primary-500: #BAFD00;
+  --dgn-color-primary-600: #9DD200;
+  --dgn-color-primary-700: #7AA900;
+  --dgn-color-primary-800: #5C8500;
+  --dgn-color-primary-900: #3A5A00;
+
+  /* Colors | Secondary */
+  --dgn-color-secondary-50: #71E1E1;
+  --dgn-color-secondary-100: #65D0D0;
+  --dgn-color-secondary-200: #59BEBE;
+  --dgn-color-secondary-300: #368989;
+  --dgn-color-secondary-400: #1E6666;
+  --dgn-color-secondary-500: #064343;
+  --dgn-color-secondary-600: #063B3B;
+  --dgn-color-secondary-700: #053232;
+  --dgn-color-secondary-800: #031F1F;
+  --dgn-color-secondary-900: #011010;
+
+  /* Typography | Common */
+  --dgn-text-base: 16px;
+
+  /* Typography | Variants */
+  --dgn-text-body: 1rem;
+  --dgn-text-body-line-height: 125%;
+  --dgn-text-h4: 1.5rem;
+  --dgn-text-h4-line-height: 125%;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: var(--dgn-color-neutral-900);
+  font-family: var(--dgn-font-outfit);
+}
+
+body, h1, h2, h3, h4, h5, h6, p, span {
+  margin: 0;
+}
+
+img, svg {
+  display: block;
+}

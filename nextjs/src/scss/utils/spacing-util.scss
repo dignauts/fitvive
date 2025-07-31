@@ -1,0 +1,12 @@
+@use 'sass:meta';
+
+/// @param {Number} $multiplier - multiplier of the base spacing unit
+/// @param {Number} $base: 8px - base spacing unit (default: 8)
+/// @return {Length} calculated spacing value (in px)
+@function spacing($multiplier, $base: 8) {
+  @if meta.type-of($multiplier) != 'number' {
+    @error "spacing() expects a number, got `#{$multiplier}`.";
+  }
+
+  @return $multiplier * $base * 1px;
+}

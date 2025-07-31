@@ -1,0 +1,20 @@
+@use 'sass:meta';
+@use 'sass:string';
+
+/// @param {String} $name - color name (e.g. "primary", "text-white")
+/// @param {Number | Null} $shade - shade level (e.g. 500). Can be null.
+/// @param {Color | String | Null} $fallback - optional fallback color
+/// @return {CSS variable} returns the correct CSS variable reference, optionally with fallback
+@function color($name, $shade: null, $fallback: null) {
+  @if string.index($name, " ") {
+    @error "Color name `#{$name}` cannot contain spaces.";
+  }
+
+  @if $shade != null and meta.type-of($shade) != "number" {
+    @error "Shade must be a number or null. Got `#{$shade}`.";
+  }
+
+  $variable_name: "--dgn-color-#{$name}#{if($shade != null, '-#{$shade}', '')}";
+
+  @return if($fallback != null, var(#{$variable_name}, #{$fallback}), var(#{$variable_name}));
+}

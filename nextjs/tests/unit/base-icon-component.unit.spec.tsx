@@ -8,6 +8,7 @@ describe('[components] BaseIconComponent', () => {
     const { container } = render(
       <BaseIconComponent
         className="myCustomClass"
+        fill="none"
         height={24}
         viewBox='0 0 24 24'
         width={24}

@@ -1,0 +1,36 @@
+@use 'utils/color-util.scss' as * ;
+@use 'utils/typography-util.scss' as * ;
+
+.DgnTypography {
+  &--colorPrimary {
+    color: color("neutral", 50);
+  }
+
+  &--variantBody {
+    @include typography("body");
+  }
+
+  &--variantH4 {
+    @include typography("h4");
+  }
+
+  &--weightBold {
+    font-weight: font_weight("bold");
+  }
+
+  &--weightExtra {
+    font-weight: font_weight("extra");
+  }
+
+  &--weightMedium {
+    font-weight: font_weight("medium");
+  }
+
+  &--weightRegular {
+    font-weight: font_weight("regular");
+  }
+
+  &--weightSemi {
+    font-weight: font_weight("semi");
+  }
+}
