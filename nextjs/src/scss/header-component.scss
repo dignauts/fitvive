@@ -1,0 +1,18 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnHeader {
+  left: 0;
+  padding-inline: spacing(2.5);
+  position: fixed;
+  top: spacing(3);
+  width: -webkit-fill-available;
+  z-index: 1400;
+
+  &__container {
+    backdrop-filter: blur(spacing(2));
+    background-color: color("neutral", 50, 0.16);
+    border-radius: spacing(3.5);
+    padding: spacing(2);
+  }
+}

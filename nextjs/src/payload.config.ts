@@ -9,7 +9,9 @@ import { buildConfig } from 'payload';
 import sharp from 'sharp';
 
 import { MediaCollection } from '@/collections/media-collection';
+import { PagesCollection } from '@/collections/pages-collection';
 import { UsersCollection } from '@/collections/users-collection';
+import { SettingsGlobal } from '@/globals/settings-global';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -21,7 +23,14 @@ export default buildConfig({
       baseDir: path.resolve(dirname)
     }
   },
-  collections: [UsersCollection, MediaCollection],
+  collections: [
+    MediaCollection,
+    PagesCollection,
+    UsersCollection
+  ],
+  globals: [
+    SettingsGlobal
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

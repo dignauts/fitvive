@@ -1,0 +1,40 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:string';
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+@function get_breakpoint($value) {
+  $key: if(meta.type-of($value) == 'string', $value, string.unquote("#{$value}"));
+  
+  @if map.has-key($breakpoints, $key) {
+    @return map.get($breakpoints, $key);
+  } @else if meta.type-of($value) == 'number' {
+    @return $value + px;
+  } @else {
+    @return $value;
+  }
+}
+
+@mixin mq($breakpoint, $type: 'max') {
+  $val: get_breakpoint($breakpoint);
+
+  @if $type == 'min' {
+    @media (min-width: #{$val}) {
+      @content;
+    }
+  } @else if $type == 'max' {
+    @media (max-width: #{$val}) {
+      @content;
+    }
+  } @else {
+    @error "Invalid type '#{$type}'. Use 'min' or 'max'.";
+  }
+}

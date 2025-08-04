@@ -1,0 +1,20 @@
+@use 'sass:string';
+
+@use 'utils/mq-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnContainer {
+  margin: 0 auto;
+
+  &--maxWidth {
+    @each $key, $value in $breakpoints {
+      &#{string.to-upper-case(string.slice($key, 1, 1))}#{string.slice($key, 2)} {
+        max-width: get_breakpoint($key);
+      }
+    }
+  }
+
+  &--withPadding {
+    padding-inline: spacing(2.5);
+  }
+}
