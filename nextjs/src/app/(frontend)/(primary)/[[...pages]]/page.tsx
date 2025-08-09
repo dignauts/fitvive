@@ -1,10 +1,31 @@
+import { ASSET } from '@/constants/assets-constants';
 import { getPageBySlug } from '@/services/get/get-page-by-slug';
 import { CatchAllDynamicPageProps } from '@/types/props/common-props';
+
+export async function generateMetadata({ params }: CatchAllDynamicPageProps) {
+  const page = await getPageBySlug({ params });
+
+  return {
+    metadataBase: new URL('https://fitvive.com'),
+    title: page?.meta?.title || page?.pageTitle,
+    description: page?.meta?.description,
+    keywords: page?.meta?.keywords,
+    openGraph: {
+      images: [
+        {
+          url: page?.meta?.thumbnail || ASSET.THUMBNAIL,
+          width: 1200,
+          height: 630
+        }
+      ]
+    }
+  };
+}
 
 const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
 
-  return (
+  return !page ? <div>Not found</div> : (
     <div style={{ height: 3000, background: 'transparent' }}>
       sdasd
     </div>

@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload';
 
+import { BreadcrumbsField } from '@/fields/breadcrumbs-field';
 import { MetaField } from '@/fields/meta-field';
 import { SlugField } from '@/fields/slug-field';
 
@@ -8,6 +9,7 @@ export const PagesCollection: CollectionConfig = {
     useAsTitle: 'pageTitle'
   },
   fields: [
+    BreadcrumbsField,
     SlugField(),
     MetaField,
     {

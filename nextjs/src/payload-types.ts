@@ -145,6 +145,10 @@ export interface Media {
 export interface Page {
   id: number;
   /**
+   * Enabling this option displays breadcrumbs on the page.
+   */
+  isBreadcrumbsVisible?: boolean | null;
+  /**
    * The URL-friendly identifier for this page. Example: "about-us" → fitvive.com/about-us
    */
   slug: string;
@@ -163,7 +167,7 @@ export interface Page {
     /**
      * Image used when sharing the page on social platforms like Facebook or LinkedIn. Recommended size: 1200×630px.
      */
-    Thumbnail?: (number | null) | Media;
+    thumbnail?: (number | null) | Media;
     /**
      * Optional. Comma-separated keywords relevant to the page (e.g. “web development, react, e-commerce”).
      */
@@ -284,13 +288,14 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  isBreadcrumbsVisible?: T;
   slug?: T;
   meta?:
     | T
     | {
         title?: T;
         description?: T;
-        Thumbnail?: T;
+        thumbnail?: T;
         keywords?: T;
       };
   pageTitle?: T;

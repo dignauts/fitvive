@@ -32,7 +32,7 @@ export const MetaField: Field = {
         description:
           'Image used when sharing the page on social platforms like Facebook or LinkedIn. Recommended size: 1200×630px.'
       },
-      name: 'Thumbnail',
+      name: 'thumbnail',
       label: 'Thumbnail (Open Graph)',
       type: 'upload',
       relationTo: 'media'

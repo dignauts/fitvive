@@ -1,8 +1,10 @@
+import { cache } from 'react';
+
 import { payloadService } from '@/services/payload-service';
 import { CatchAllDynamicPageProps } from '@/types/props/common-props';
 import { mergeSlug } from '@/utils/merge-slug.util';
 
-export const getPageBySlug = async ({ params }: CatchAllDynamicPageProps) => {
+export const getPageBySlug = cache(async ({ params }: CatchAllDynamicPageProps) => {
   const { pages } = await params;
   const slug = mergeSlug({ pages });
 
@@ -24,4 +26,4 @@ export const getPageBySlug = async ({ params }: CatchAllDynamicPageProps) => {
 
     return null;
   }
-};
+});
