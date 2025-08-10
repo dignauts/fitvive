@@ -6,7 +6,7 @@ import '@/scss/header-component.scss';
 
 const HeaderComponent = () => (
   <header className={cn('header')}>
-    <ContainerComponent className={cn('header', { element: 'container' })} withPadding={false}>
+    <ContainerComponent className={cn('header', { element: 'container' })}>
       <LogoComponent linkProps={{ href: ROUTE.HOME }} />
     </ContainerComponent>
   </header>

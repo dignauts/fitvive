@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import DumbbellsIconComponent from '@/components/icons/24x24/dumbbells-icon';
+import DumbbellsIconComponent from '@/components/icons/24x24/dumbbells-icon-component';
 import TypographyComponent from '@/components/main/typography-component';
 import { COMPANY_NAME } from '@/constants/common-constants';
 import { LogoComponentProps } from '@/types/props/logo-props';

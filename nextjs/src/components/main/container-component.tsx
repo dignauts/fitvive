@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ContainerComponentProps } from '@/types/props/container.props';
+import { ContainerComponentProps } from '@/types/props/container-props';
 import { cn } from '@/utils/cn-util';
 import '@/scss/container-component.scss';
 

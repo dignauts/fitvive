@@ -1,3 +1,4 @@
+import HeaderBlockComponent from '@/components/blocks/header-block-component';
 import { ASSET } from '@/constants/assets-constants';
 import { getPageBySlug } from '@/services/get/get-page-by-slug';
 import { CatchAllDynamicPageProps } from '@/types/props/common-props';
@@ -26,9 +27,7 @@ const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
 
   return !page ? <div>Not found</div> : (
-    <div style={{ height: 3000, background: 'transparent' }}>
-      sdasd
-    </div>
+    <HeaderBlockComponent pageTitle={page.pageTitle} />
   );
 };
 

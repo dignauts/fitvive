@@ -1,0 +1,21 @@
+import { FC } from 'react';
+
+import BaseIconComponent from '@/components/icons/base-icon-component';
+import { BaseIconComponentProps } from '@/types/props/common-props';
+
+const HomeIconComponent: FC<BaseIconComponentProps> = ({
+  className, fill = 'currentColor', height, width
+}) => (
+  <BaseIconComponent
+    className={className}
+    height={height}
+    width={width}
+  >
+    <path
+      d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c.4 0 .77-.24.92-.62.15-.37.07-.8-.22-1.09l-8.99-9a.996.996 0 0 0-1.41 0l-9.01 9c-.29.29-.37.72-.22 1.09s.52.62.92.62Zm7 7v-5h4v5zm2-15.59 6 6V20h-2v-5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v5H6v-9.59z"
+      fill={fill}
+    />
+  </BaseIconComponent>
+);
+
+export default HomeIconComponent;

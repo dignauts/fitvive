@@ -3,16 +3,17 @@
 
 .DgnHeader {
   left: 0;
-  padding-inline: spacing(2.5);
+  padding: spacing(2.5);
   position: fixed;
-  top: spacing(3);
+  top: spacing(0);
   width: -webkit-fill-available;
   z-index: 1400;
 
   &__container {
     backdrop-filter: blur(spacing(2));
-    background-color: color("neutral", 50, 0.16);
+    background: color("neutral", 50, 0.16);
     border-radius: spacing(3.5);
+    box-sizing: border-box;
     padding: spacing(2);
   }
 }

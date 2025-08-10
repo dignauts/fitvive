@@ -1,0 +1,30 @@
+@use 'utils/color-util.scss' as * ;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnChip {
+  border-radius: spacing(2);
+  color: color("neutral", 50);
+  display: inline-block;
+  max-width: fit-content;
+  transition: color .25s ease-out;
+
+  &__label {
+    color: inherit;
+  }
+
+  &--colorDefault {
+    background: color("neutral", 800, 0.7);
+  }
+
+  &--colorDisabled {
+    color: color("neutral", 400);
+
+    &.DgnChip--link:hover {
+      color: color("primary", 500);
+    }
+  }
+
+  &--sizeSmall {
+    padding: spacing(0.5) spacing(1.5);
+  }
+}

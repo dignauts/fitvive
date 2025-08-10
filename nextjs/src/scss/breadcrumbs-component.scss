@@ -1,0 +1,12 @@
+@use 'utils/color-util.scss' as * ;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnBreadcrumbs {
+  align-items: center;
+  display: flex;
+  gap: spacing(1);
+
+  &__separator {
+    color: color('neutral', 400);
+  }
+}
