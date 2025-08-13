@@ -10,8 +10,16 @@
     @include typography("body");
   }
 
+  &--variantCaption {
+    @include typography("caption");
+  }
+
   &--variantH4 {
     @include typography("h4");
+  }
+
+  &--variantH6 {
+    @include typography("h6");
   }
 
   &--weightBold {

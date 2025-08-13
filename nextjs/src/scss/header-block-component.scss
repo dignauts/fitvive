@@ -2,13 +2,13 @@
 @use 'utils/spacing-util.scss' as *;
 
 .DgnHeaderBlock {
-  background-color: color('secondary', 900);
   border-bottom: 1px solid color('neutral', 800);
-  padding: spacing(4) 0;
 
-  &__container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
+  & .DgnBaseBlock {
+    &__container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

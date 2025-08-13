@@ -1,0 +1,10 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnFaqBlock {
+  background: color("neutral", 800, 0.08);
+
+  &__questions {
+    margin-top: spacing(6);
+  }
+}

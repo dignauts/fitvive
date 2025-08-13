@@ -177,6 +177,56 @@ export interface Page {
    * The main title of the page, typically used in the H1 heading and for identifying the page content.
    */
   pageTitle: string;
+  /**
+   * Build the page layout by adding and arranging predefined content blocks.
+   */
+  layout?:
+    | {
+        header: {
+          chipLabel?: string | null;
+          title: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+          description?: string | null;
+        };
+        faq?:
+          | {
+              question: string;
+              answer: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'faq';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -299,6 +349,30 @@ export interface PagesSelect<T extends boolean = true> {
         keywords?: T;
       };
   pageTitle?: T;
+  layout?:
+    | T
+    | {
+        faq?:
+          | T
+          | {
+              header?:
+                | T
+                | {
+                    chipLabel?: T;
+                    title?: T;
+                    description?: T;
+                  };
+              faq?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }

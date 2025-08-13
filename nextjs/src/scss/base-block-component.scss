@@ -1,0 +1,20 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnBaseBlock {
+  background: color('secondary', 900);
+
+  &--paddingY {
+    &Sm {
+      padding-block: spacing(4);
+    }
+
+    &Md {
+      padding-block: spacing(10);
+    }
+
+    &Lg{
+      padding-block: spacing(15);
+    }
+  }
+}

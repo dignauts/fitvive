@@ -1,0 +1,11 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnSectionHeader {
+  &__chip {
+    margin-bottom: spacing(3.75);
+  }
+
+  &__description {
+    margin-top: spacing(1);
+  }
+}

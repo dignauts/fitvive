@@ -1,0 +1,11 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnAccordion {
+  &Item {
+    margin-bottom: spacing(2);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

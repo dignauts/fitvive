@@ -1,3 +1,4 @@
+import FaqBlockComponent from '@/components/blocks/faq-block-component';
 import HeaderBlockComponent from '@/components/blocks/header-block-component';
 import { ASSET } from '@/constants/assets-constants';
 import { getPageBySlug } from '@/services/get/get-page-by-slug';
@@ -27,7 +28,18 @@ const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
 
   return !page ? <div>Not found</div> : (
-    <HeaderBlockComponent pageTitle={page.pageTitle} />
+    <>
+      {page.isBreadcrumbsVisible && <HeaderBlockComponent pageTitle={page.pageTitle} />}
+      {
+        page.layout && page.layout.map((section) => (
+          <FaqBlockComponent
+            faq={section.faq}
+            header={section.header}
+            key={section.id}
+          />
+        ))
+      }
+    </>
   );
 };
 

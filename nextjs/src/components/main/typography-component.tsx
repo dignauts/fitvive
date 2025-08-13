@@ -6,7 +6,7 @@ import '@/scss/typography-component.scss';
 
 const TypographyComponent: FC<TypographyComponentProps> = ({
   children, className, color = 'primary', component = 'p',
-  linkProps, variant = 'body', weight = 'regular'
+  linkProps, onClick, variant = 'body', weight = 'regular'
 }) => {
   const Component = (linkProps?.href ? 'a' : component) as TypographyComponentType;
 
@@ -20,6 +20,7 @@ const TypographyComponent: FC<TypographyComponentProps> = ({
           weight
         }
       })}
+      onClick={onClick}
       {...linkProps && ({
         href: linkProps?.href,
         target: linkProps?.isExternal ? '_blank' : undefined

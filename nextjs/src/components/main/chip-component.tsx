@@ -7,7 +7,7 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/chip-component.scss';
 
 const ChipComponent: FC<ChipComponentProps> = ({
-  className, color = 'default', content, href, size = 'large', testId
+  className, color = 'default', content, href, size = 'large', testId, typographyProps
 }) => {
   const Component = href ? 'a' : 'div';
 
@@ -30,6 +30,7 @@ const ChipComponent: FC<ChipComponentProps> = ({
         className={cn('chip', { element: 'label' })}
         component="span"
         weight='medium'
+        {...typographyProps}
       >
         {content}
       </TypographyComponent>

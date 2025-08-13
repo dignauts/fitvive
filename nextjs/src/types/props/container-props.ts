@@ -1,9 +1,6 @@
-import { ReactNode } from 'react';
+import { BaseComponentWithChildrenProps } from '@/types/props/common-props';
 
-import { BaseComponentProps } from '@/types/props/common-props';
-
-export interface ContainerComponentProps extends BaseComponentProps {
-  children: ReactNode | ReactNode[];
+export interface ContainerComponentProps extends BaseComponentWithChildrenProps {
   component?: 'div' | 'main';
   maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   withPadding?: boolean;

@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload';
 
+import { BlocksField } from '@/fields/blocks-field';
 import { BreadcrumbsField } from '@/fields/breadcrumbs-field';
 import { MetaField } from '@/fields/meta-field';
 import { SlugField } from '@/fields/slug-field';
@@ -21,7 +22,8 @@ export const PagesCollection: CollectionConfig = {
       name: 'pageTitle',
       required: true,
       type: 'text'
-    }
+    },
+    BlocksField
   ],
   slug: 'pages'
 };

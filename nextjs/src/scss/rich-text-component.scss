@@ -1,0 +1,50 @@
+@use 'utils/color-util.scss' as * ;
+@use 'utils/typography-util.scss' as * ;
+
+$tags: h1, h2, h3, h4, h5, h6, p, span;
+
+$variants: (
+  "variantBody": "body",
+  "variantCaption": "caption",
+  "variantH1": "h1",
+  "variantH4": "h4",
+  "variantH6": "h6"
+);
+
+.DgnRichText {
+  @each $variant, $typo in $variants {
+    &--#{$variant} {
+      #{$tags} {
+        @include typography($typo);
+      }
+    }
+  }
+
+  &--colorHighlighted {
+    color: color('neutral', 50);
+
+    strong {
+      color: color('primary', 500);
+    }
+  }
+
+  &--weightBold {
+    font-weight: font_weight("bold");
+  }
+
+  &--weightExtra {
+    font-weight: font_weight("extra");
+  }
+
+  &--weightMedium {
+    font-weight: font_weight("medium");
+  }
+
+  &--weightRegular {
+    font-weight: font_weight("regular");
+  }
+
+  &--weightSemi {
+    font-weight: font_weight("semi");
+  }
+}

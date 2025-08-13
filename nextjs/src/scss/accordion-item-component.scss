@@ -1,0 +1,39 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnAccordionItem {
+  border: 1px solid color('neutral', 50, 0.15);
+  border-radius: spacing(1);
+  padding: spacing(1.5);
+
+  &__answer {
+    color: color('neutral', 400);
+  }
+
+  &__content {
+    overflow-y: hidden;
+    padding-top: spacing(0.5);
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: spacing(2);
+    justify-content: space-between;
+  }
+
+  &__question {
+    transition: color .25s ease-out;
+    
+    &:hover {
+      color: color('primary', 500);
+      cursor: pointer;
+    }
+  }
+
+  &--isExpanded {
+    & .DgnAccordionItem__question {
+      color: color('primary', 500);
+    }
+  }
+}
