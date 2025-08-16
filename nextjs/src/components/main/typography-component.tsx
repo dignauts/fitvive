@@ -5,8 +5,8 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/typography-component.scss';
 
 const TypographyComponent: FC<TypographyComponentProps> = ({
-  children, className, color = 'primary', component = 'p',
-  linkProps, onClick, variant = 'body', weight = 'regular'
+  capitalize, children, className, color = 'primary', component = 'p',
+  linkProps, onClick, variant = 'body', weight = 'regular', withWhitespace
 }) => {
   const Component = (linkProps?.href ? 'a' : component) as TypographyComponentType;
 
@@ -15,9 +15,12 @@ const TypographyComponent: FC<TypographyComponentProps> = ({
       className={cn('typography', {
         additionalClassNames: className,
         modifiers: {
+          capitalize,
           color,
+          link: !!linkProps?.href,
           variant,
-          weight
+          weight,
+          withWhitespace
         }
       })}
       onClick={onClick}

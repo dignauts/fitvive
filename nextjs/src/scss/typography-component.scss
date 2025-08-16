@@ -2,8 +2,20 @@
 @use 'utils/typography-util.scss' as * ;
 
 .DgnTypography {
+  &--capitalize {
+    text-transform: capitalize;
+  }
+
   &--colorPrimary {
     color: color("neutral", 50);
+  }
+
+  &--link {
+    transition: color .25s ease-out;
+    
+    &:hover {
+      color: color('primary', 500)
+    }
   }
 
   &--variantBody {
@@ -14,8 +26,16 @@
     @include typography("caption");
   }
 
+  &--variantD2 {
+    @include typography("d2");
+  }
+
   &--variantH4 {
     @include typography("h4");
+  }
+
+  &--variantH5 {
+    @include typography("h5");
   }
 
   &--variantH6 {
@@ -40,5 +60,9 @@
 
   &--weightSemi {
     font-weight: font_weight("semi");
+  }
+
+  &--withWhitespace {
+    white-space: pre-line;
   }
 }

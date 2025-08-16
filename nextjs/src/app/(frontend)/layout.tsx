@@ -1,4 +1,5 @@
 import { Outfit } from 'next/font/google';
+import { getLocale } from 'next-intl/server';
 import { FC, PropsWithChildren } from 'react';
 
 import { COMPANY_NAME } from '@/constants/common-constants';
@@ -15,12 +16,16 @@ const outfit = Outfit({
   variable: '--dgn-font-outfit'
 });
 
-const RootLayout: FC<PropsWithChildren> = ({ children }) => (
-  <html lang="en">
-    <body className={outfit.variable}>
-      {children}
-    </body>
-  </html>
-);
+const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale}>
+      <body className={outfit.variable}>
+        {children}
+      </body>
+    </html>
+  );
+};
 
 export default RootLayout;

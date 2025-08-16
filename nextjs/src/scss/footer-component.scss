@@ -1,0 +1,42 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnFooter {
+  &__bottom {
+    border-top: 1px solid color('neutral', 700);
+    margin-top: spacing(4);
+    padding-top: spacing(4);
+  }
+
+  &__catchphrase {
+    margin-top: spacing(4);
+  }
+
+  &__content {
+    display: flex;
+    gap: spacing(3);
+    justify-content: space-between;
+  }
+
+  &__motto {
+    border-bottom: 1px solid color('neutral', 700);
+    margin-bottom: spacing(10);
+    padding-bottom: spacing(10);
+  }
+
+  &__quickLinks {
+    .DgnBaseList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: spacing(2);
+    }
+
+    > .DgnTypography {
+      margin-bottom: spacing(5);
+    }
+  }
+
+  &--withMotto.DgnBaseBlock {
+    padding-top: spacing(15);
+  }
+}

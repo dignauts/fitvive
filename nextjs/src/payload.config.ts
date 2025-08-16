@@ -11,6 +11,7 @@ import sharp from 'sharp';
 import { MediaCollection } from '@/collections/media-collection';
 import { PagesCollection } from '@/collections/pages-collection';
 import { UsersCollection } from '@/collections/users-collection';
+import { FooterGlobal } from '@/globals/footer-global';
 import { SettingsGlobal } from '@/globals/settings-global';
 
 const filename = fileURLToPath(import.meta.url);
@@ -29,6 +30,7 @@ export default buildConfig({
     UsersCollection
   ],
   globals: [
+    FooterGlobal,
     SettingsGlobal
   ],
   editor: lexicalEditor(),

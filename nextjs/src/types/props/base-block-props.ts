@@ -4,5 +4,6 @@ import { ContainerComponentProps } from '@/types/props/container-props';
 export interface BaseBlockComponentProps
   extends BaseComponentWithChildrenProps,
   Pick<ContainerComponentProps, 'maxWidth' | 'withPadding'> {
+  component?: 'footer' | 'section';
   paddingY?: 'sm' | 'md' | 'lg' // 32px | 80px | 120px
 }

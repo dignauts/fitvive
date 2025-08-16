@@ -6,9 +6,10 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/base-block-component.scss';
 
 const BaseBlockComponent: FC<BaseBlockComponentProps> = ({
-  children, className, maxWidth, paddingY = 'md', testId, withPadding
+  children, className, component: Component = 'section',
+  maxWidth, paddingY = 'md', testId, withPadding
 }) => (
-  <section
+  <Component
     className={cn('baseBlock', {
       additionalClassNames: className,
       modifiers: {
@@ -24,7 +25,7 @@ const BaseBlockComponent: FC<BaseBlockComponentProps> = ({
     >
       {children}
     </ContainerComponent>
-  </section>
+  </Component>
 );
 
 export default BaseBlockComponent;

@@ -87,9 +87,11 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
+    footer: Footer;
     settings: Setting;
   };
   globalsSelect: {
+    footer: FooterSelect<false> | FooterSelect<true>;
     settings: SettingsSelect<false> | SettingsSelect<true>;
   };
   locale: null;
@@ -432,6 +434,58 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  /**
+   * Text displayed above the footer.
+   */
+  motto?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Tagline placed below the logo.
+   */
+  catchphrase?: string | null;
+  /**
+   * Defines the quick links displayed in the website footer. Each link can be either an internal page reference or an external URL, along with a display label.
+   */
+  quickLinks?:
+    | {
+        /**
+         * The text that will appear as the clickable label for this link.
+         */
+        label: string;
+        /**
+         * Select whether this link points to an internal page or an external website.
+         */
+        type: 'internal' | 'external';
+        internalLink?: (number | null) | Page;
+        /**
+         * Full external URL, e.g. https://example.com
+         */
+        externalLink?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "settings".
  */
 export interface Setting {
@@ -459,6 +513,26 @@ export interface Setting {
     | null;
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  motto?: T;
+  catchphrase?: T;
+  quickLinks?:
+    | T
+    | {
+        label?: T;
+        type?: T;
+        internalLink?: T;
+        externalLink?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
