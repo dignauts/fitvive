@@ -1,4 +1,5 @@
 import { Outfit } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { FC, PropsWithChildren } from 'react';
 
@@ -22,7 +23,9 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
   return (
     <html lang={locale}>
       <body className={outfit.variable}>
-        {children}
+        <NextIntlClientProvider>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

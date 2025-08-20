@@ -183,30 +183,11 @@ export interface Page {
    * Build the page layout by adding and arranging predefined content blocks.
    */
   layout?:
-    | {
-        header: {
-          chipLabel?: string | null;
-          title: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          };
-          description?: string | null;
-        };
-        faq?:
-          | {
-              question: string;
-              answer: {
+    | (
+        | {
+            header: {
+              chipLabel?: string | null;
+              title: {
                 root: {
                   type: string;
                   children: {
@@ -221,13 +202,59 @@ export interface Page {
                 };
                 [k: string]: unknown;
               };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'faq';
-      }[]
+              description?: string | null;
+            };
+            isContactDetailsEnabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'CONTACT_FORM';
+          }
+        | {
+            header: {
+              chipLabel?: string | null;
+              title: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              description?: string | null;
+            };
+            faq?:
+              | {
+                  question: string;
+                  answer: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'FAQ';
+          }
+      )[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -354,7 +381,21 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        faq?:
+        CONTACT_FORM?:
+          | T
+          | {
+              header?:
+                | T
+                | {
+                    chipLabel?: T;
+                    title?: T;
+                    description?: T;
+                  };
+              isContactDetailsEnabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        FAQ?:
           | T
           | {
               header?:

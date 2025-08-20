@@ -1,0 +1,50 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnInput {
+  &__input {
+    background: color('neutral', 800, 0.3);
+    border-radius: spacing(1);
+    border: 1px solid color('neutral', 800, 0.64);
+    color: color('neutral', 50);
+    outline: none;
+    padding: spacing(1.5);
+    transition: color .25s ease-out;
+
+    &:focus {
+      border-color: color('primary', 500);
+    }
+
+    &::placeholder {
+      color: color('neutral', 500);
+    }
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &__label {
+    color: color('neutral', 50);
+    display: block;
+    margin-bottom: spacing(1);
+
+    &--isRequired span {
+      color: color('error', 500)
+    }
+  }
+
+  &--fullWidth {
+    & .DgnInput__input {
+      width: -webkit-fill-available;
+    }
+  }
+
+  &--isInvalid {
+    & .DgnInput__input {
+      border-color: color('error', 500);
+      color: color('error', 500);
+    }
+  }
+}

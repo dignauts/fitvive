@@ -1,0 +1,30 @@
+.DgnContactForm {
+  grid-template-areas: 
+    "fullName email"
+    "phoneNumber subject"
+    "message message"
+  ;
+  grid-template-columns: repeat(2, 1fr);
+
+  & .DgnBaseForm {
+    &__input--nameEmail {
+      grid-area: email;
+    }
+
+    &__input--nameFullName {
+      grid-area: fullName;
+    }
+
+    &__input--nameMessage {
+      grid-area: message;
+    }
+
+    &__input--namePhoneNumber {
+      grid-area: phoneNumber;
+    }
+
+    &__input--nameSubject {
+      grid-area: subject;
+    }
+  }
+}

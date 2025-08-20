@@ -1,6 +1,21 @@
 {
+  "button": {
+    "send_message": "Send message"
+  },
   "common": {
     "copyright": "© {year} {companyName}. All rights reserved.",
+    "placeholder": "eg. {hint}",
     "quick_links": "Quick links"
+  },
+  "label": {
+    "email": "E-mail address",
+    "full_name": "Full name",
+    "message": "Message",
+    "phone_number": "Phone number",
+    "subject": "Subject"
+  },
+  "pattern": {
+    "invalid_email": "Invalid e-mail address",
+    "invalid_phone_number": "Invalid phone number"
   }
 }

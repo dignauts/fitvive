@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useCallback, useState } from 'react';
 
 import AccordionItemComponent from '@/components/items/accordion-item-component';

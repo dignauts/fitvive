@@ -1,0 +1,10 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnBaseForm {
+  display: grid;
+  gap: spacing(4);
+
+  &__button {
+    justify-self: flex-start;
+  }
+}

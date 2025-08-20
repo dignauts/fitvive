@@ -1,6 +1,8 @@
+import ContactBlockComponent from '@/components/blocks/contact-block-component';
 import FaqBlockComponent from '@/components/blocks/faq-block-component';
 import HeaderBlockComponent from '@/components/blocks/header-block-component';
 import { ASSET } from '@/constants/assets-constants';
+import { BLOCK_TYPE } from '@/constants/blocks-constants';
 import { getPageBySlug } from '@/services/get/get-page-by-slug';
 import { CatchAllDynamicPageProps } from '@/types/props/common-props';
 
@@ -24,6 +26,11 @@ export async function generateMetadata({ params }: CatchAllDynamicPageProps) {
   };
 }
 
+const blocks = {
+  [BLOCK_TYPE.CONTACT_FORM]: ContactBlockComponent,
+  [BLOCK_TYPE.FAQ]: FaqBlockComponent
+} as const;
+
 const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
 
@@ -31,13 +38,15 @@ const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
     <>
       {page.isBreadcrumbsVisible && <HeaderBlockComponent pageTitle={page.pageTitle} />}
       {
-        page.layout && page.layout.map((section) => (
-          <FaqBlockComponent
-            faq={section.faq}
-            header={section.header}
-            key={section.id}
-          />
-        ))
+        page.layout && page.layout.map(({ id, ...section }) => {
+          const Component = blocks[section.blockType];
+
+          if (!Component) return null;
+
+          return (
+            <Component key={id} {...section} />
+          );
+        })
       }
     </>
   );

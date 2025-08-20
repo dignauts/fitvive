@@ -1,0 +1,9 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnContactBlock {
+  & .DgnBlock {
+    &__header {
+      margin-bottom: spacing(8);
+    }
+  }
+}

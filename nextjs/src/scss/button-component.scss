@@ -1,0 +1,40 @@
+@use 'utils/color-util.scss' as * ;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnButton {
+  border: none;
+  border-radius: spacing(12.5);
+  cursor: pointer;
+
+  &__label {
+    color: inherit;
+    transition: color .25s ease-out;
+  }
+
+  &--variantContained {
+    transition: background .25s ease-out;
+
+    &.DgnButton {
+      &--colorPrimary {
+        background: color('primary', 500);
+        color: color('secondary', 700);
+
+        &:hover {
+          background: color('secondary', 500);
+          color: color('neutral', 50);
+        }
+      }
+
+      &--isDisabled {
+        background: color('neutral', 600);
+        color: color('neutral', 800);
+        pointer-events: none;
+      }
+
+      &--sizeMedium {
+        padding-block: spacing(2);
+        padding-inline: spacing(4);
+      }
+    }
+  }
+}

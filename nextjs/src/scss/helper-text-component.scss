@@ -1,0 +1,13 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnHelperText {
+  color: color('neutral', 500);
+  display: block;
+  margin-top: spacing(0.75);
+  padding-left: spacing(1);
+
+  &--isInvalid {
+    color: color('error', 500);
+  }
+}

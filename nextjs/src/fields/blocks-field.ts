@@ -1,5 +1,6 @@
 import { Field } from 'payload';
 
+import { ContactFormBlock } from '@/fields/blocks/contact-form-block';
 import { FaqBlock } from '@/fields/blocks/faq-block';
 
 export const BlocksField: Field = {
@@ -7,7 +8,7 @@ export const BlocksField: Field = {
     description: 'Build the page layout by adding and arranging predefined content blocks.'
   },
   blocks: [
-    FaqBlock
+    ContactFormBlock, FaqBlock
   ],
   name: 'layout',
   type: 'blocks'
