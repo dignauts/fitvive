@@ -1,0 +1,47 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnIconButton {
+  border: none;
+  border-radius: 50%;
+  display: block;
+  max-width: fit-content;
+
+  &--sizeMedium .DgnBaseIcon {
+    font-size: 24px;
+  }
+
+  &--variantContained {
+    transition: color .25s ease-out, background .25s ease-out;
+
+    &.DgnIconButton {
+      &--colorNeutral {
+        background: color('neutral', 50);
+        color: color('secondary', 800);
+      }
+
+      &--colorSecondary {
+        background: color('secondary', 800);
+        color: color('neutral', 50);
+      }
+
+      &--sizeMedium {
+        padding: spacing(1.5);
+      }
+    }
+  }
+
+  &--isClickable {
+    cursor: pointer;
+
+    &.DgnIconButton--variantContained.DgnIconButton--colorNeutral:hover {
+      background: color('secondary', 800);
+      color: color('neutral', 50);
+    }
+
+    &.DgnIconButton--variantContained.DgnIconButton--colorSecondary:hover {
+      background: color('neutral', 50);
+      color: color('secondary', 800);
+    }
+  }
+}

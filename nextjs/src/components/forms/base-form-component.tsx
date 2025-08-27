@@ -14,8 +14,9 @@ const BaseFormComponent = <T extends FieldValues>({
   className, defaultValues, inputs, isLoading, onSubmit, testId
 }: BaseFormComponentProps<T>) => {
   const t = useTranslations();
-  const { control, handleSubmit } = useForm<T>({
-    defaultValues
+  const { control, formState, handleSubmit } = useForm<T>({
+    defaultValues,
+    mode: 'onChange'
   });
 
   return (
@@ -65,7 +66,7 @@ const BaseFormComponent = <T extends FieldValues>({
       {/* [Temporary solution] Todo: In the nearest future, display a loader here instead of the content */}
       <ButtonComponent
         className={cn('baseForm', { element: 'button' })}
-        isDisabled={isLoading}
+        isDisabled={!formState.isValid || isLoading}
         type='submit'
       >
         {t('button.send_message')}

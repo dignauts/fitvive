@@ -1,0 +1,7 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnContactItem {
+  align-items: center;
+  display: flex;
+  gap: spacing(2);
+}

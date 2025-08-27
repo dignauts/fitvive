@@ -4,8 +4,14 @@
   },
   "common": {
     "copyright": "© {year} {companyName}. All rights reserved.",
+    "follow_us": "Follow us",
     "placeholder": "eg. {hint}",
     "quick_links": "Quick links"
+  },
+  "component": {
+    "quick_contact": {
+      "title": "Visit or contact us directly"
+    }
   },
   "label": {
     "email": "E-mail address",
@@ -17,5 +23,13 @@
   "pattern": {
     "invalid_email": "Invalid e-mail address",
     "invalid_phone_number": "Invalid phone number"
+  },
+  "request": {
+    "error": {
+      "default": "Sorry, but something went wrong. Please try again 😔"
+    },
+    "success": {
+      "new_message": "Thanks for reaching out! We'll get back to you as soon as possible 😋"
+    }
   }
 }

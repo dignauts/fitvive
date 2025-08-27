@@ -8,7 +8,9 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 
+import { ContactDetailsGlobal } from '@//globals/contact-details-global';
 import { MediaCollection } from '@/collections/media-collection';
+import { MessagesCollection } from '@/collections/messages-collection';
 import { PagesCollection } from '@/collections/pages-collection';
 import { UsersCollection } from '@/collections/users-collection';
 import { FooterGlobal } from '@/globals/footer-global';
@@ -26,10 +28,12 @@ export default buildConfig({
   },
   collections: [
     MediaCollection,
+    MessagesCollection,
     PagesCollection,
     UsersCollection
   ],
   globals: [
+    ContactDetailsGlobal,
     FooterGlobal,
     SettingsGlobal
   ],

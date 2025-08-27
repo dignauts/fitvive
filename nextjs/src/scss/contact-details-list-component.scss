@@ -1,0 +1,11 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnContactDetailsList {
+  & .DgnBaseList__listItem {
+    margin-bottom: spacing(4);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

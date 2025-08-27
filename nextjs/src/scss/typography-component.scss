@@ -10,6 +10,10 @@
     color: color("neutral", 50);
   }
 
+  &--colorSecondary {
+    color: color('secondary', 800);
+  }
+
   &--link {
     transition: color .25s ease-out;
     
@@ -28,6 +32,10 @@
 
   &--variantD2 {
     @include typography("d2");
+  }
+
+  &--variantH2 {
+    @include typography("h2");
   }
 
   &--variantH4 {

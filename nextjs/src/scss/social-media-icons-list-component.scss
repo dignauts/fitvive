@@ -1,0 +1,7 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnSocialMediaIconsList {
+  align-items: center;
+  display: flex;
+  gap: spacing(1.5);
+}

@@ -6,6 +6,10 @@
   display: flex;
   gap: spacing(1);
 
+  &__icon {
+    font-size: 20px;
+  }
+
   &__separator {
     color: color('neutral', 400);
   }

@@ -4,9 +4,9 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/base-list-component.scss';
 
 const BaseListComponent = <T extends WithIdentifier<object>>({
-  items, render
+  className, items, render, testId
 }: BaseListComponentProps<T>) => items && (
-  <ul className={cn('baseList')}>
+  <ul className={cn('baseList', { additionalClassNames: className })} data-testid={testId}>
     {
       items.map((item, index) => (
         <li className={cn('baseList', { element: 'listItem' })} key={item.id || index}>

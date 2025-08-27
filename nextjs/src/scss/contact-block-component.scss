@@ -6,4 +6,18 @@
       margin-bottom: spacing(8);
     }
   }
+
+  &--withContactDetails {
+    & .DgnContactBlock {
+      &__wrapper {
+        display: grid;
+        gap: spacing(4);
+        grid-template-columns: 1fr minmax(0, 480px);
+      }
+    }
+
+    & .DgnQuickContact {
+      align-self: flex-start;
+    }
+  }
 }

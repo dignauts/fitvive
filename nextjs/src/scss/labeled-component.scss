@@ -1,0 +1,7 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnLabeled {
+  &__label {
+    margin-bottom: spacing(0.75);
+  }
+}
