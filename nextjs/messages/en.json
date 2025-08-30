@@ -28,6 +28,9 @@
     "error": {
       "default": "Sorry, but something went wrong. Please try again 😔"
     },
+    "pending": {
+      "new_message": "Sending message..."
+    },
     "success": {
       "new_message": "Thanks for reaching out! We'll get back to you as soon as possible 😋"
     }

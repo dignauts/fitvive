@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
 import { FC, PropsWithChildren } from 'react';
 
+import ToastProvider from '@/components/providers/toast-provider';
 import { COMPANY_NAME } from '@/constants/common-constants';
 import '@/scss/globals.scss';
 
@@ -25,6 +26,7 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
       <body className={outfit.variable}>
         <NextIntlClientProvider>
           {children}
+          <ToastProvider />
         </NextIntlClientProvider>
       </body>
     </html>
