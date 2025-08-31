@@ -1,0 +1,9 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnBlock {
+  &--enableMarginBottom {
+    & .DgnBlock__header {
+      margin-bottom: spacing(5);
+    }
+  }
+}

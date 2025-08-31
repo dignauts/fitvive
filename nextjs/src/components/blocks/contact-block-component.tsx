@@ -16,6 +16,7 @@ const ContactBlockComponent: FC<ContactBlockComponentProps> = ({
         withContactDetails: isContactDetailsEnabled
       }
     })}
+    enableMarginBottom
     header={header}
     testId={testId}
   >

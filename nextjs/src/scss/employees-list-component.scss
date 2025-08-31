@@ -1,0 +1,7 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnEmployeesList {
+  display: grid;
+  gap: spacing(4);
+  grid-template-columns: repeat(3, 1fr);
+}

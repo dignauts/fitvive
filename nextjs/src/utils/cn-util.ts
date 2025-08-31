@@ -35,3 +35,6 @@ export const cn = (
 
   return clsx(base, mods, options?.additionalClassNames);
 };
+
+export const createClassNameManager = (block: string) => (options?: CnOptions) => cn(block, options);
+

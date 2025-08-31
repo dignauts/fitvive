@@ -5,6 +5,8 @@
   border: none;
   border-radius: spacing(12.5);
   cursor: pointer;
+  display: block;
+  max-width: fit-content;
 
   &__label {
     color: inherit;

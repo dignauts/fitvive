@@ -1,4 +1,5 @@
 export const BLOCK_TYPE = {
   CONTACT_FORM: 'CONTACT_FORM',
+  EMPLOYEES: 'EMPLOYEES',
   FAQ: 'FAQ'
 };

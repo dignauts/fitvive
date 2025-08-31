@@ -8,4 +8,9 @@
   &__description {
     margin-top: spacing(1);
   }
+
+  &--positionCenter {
+    margin-inline: auto;
+    text-align: center;
+  }
 }

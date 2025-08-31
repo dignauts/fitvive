@@ -1,0 +1,11 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnEmployeesBlock {
+  & .DgnBlock__header {
+    max-width: 960px;
+  }
+
+  &__button {
+    margin: spacing(5) auto 0 auto;
+  }
+}

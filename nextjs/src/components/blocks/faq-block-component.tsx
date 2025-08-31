@@ -12,6 +12,7 @@ const FaqBlockComponent: FC<FaqBlockComponentProps> = ({
 }) => (
   <BlockComponent
     className={cn('faqBlock')}
+    enableMarginBottom
     header={header}
     testId={testId}
   >

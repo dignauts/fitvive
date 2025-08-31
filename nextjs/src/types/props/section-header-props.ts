@@ -7,4 +7,6 @@ export type SectionHeaderProps = {
   title: RichTextContentType;
 }
 
-export type SectionHeaderComponentProps = BaseComponentProps & SectionHeaderProps;
+export interface SectionHeaderComponentProps extends BaseComponentProps, SectionHeaderProps {
+  position?: 'center' | 'left';
+}

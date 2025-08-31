@@ -1,6 +1,7 @@
 {
   "button": {
-    "send_message": "Send message"
+    "send_message": "Send message",
+    "view_all_trainers": "View all trainers"
   },
   "common": {
     "copyright": "© {year} {companyName}. All rights reserved.",

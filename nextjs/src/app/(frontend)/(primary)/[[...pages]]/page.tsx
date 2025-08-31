@@ -1,4 +1,5 @@
 import ContactBlockComponent from '@/components/blocks/contact-block-component';
+import EmployeesBlockComponent from '@/components/blocks/employees-block-component';
 import FaqBlockComponent from '@/components/blocks/faq-block-component';
 import HeaderBlockComponent from '@/components/blocks/header-block-component';
 import { ASSET } from '@/constants/assets-constants';
@@ -28,11 +29,14 @@ export async function generateMetadata({ params }: CatchAllDynamicPageProps) {
 
 const blocks = {
   [BLOCK_TYPE.CONTACT_FORM]: ContactBlockComponent,
+  [BLOCK_TYPE.EMPLOYEES]: EmployeesBlockComponent,
   [BLOCK_TYPE.FAQ]: FaqBlockComponent
 } as const;
 
 const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
+
+  console.log(page);
 
   return !page ? <div>Not found</div> : (
     <>

@@ -1,0 +1,35 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnEmployeeItem {
+  max-width: 278px;
+  padding-inline: spacing(6);
+
+  &__avatar {
+    margin-bottom: spacing(5);
+    z-index: 10;
+  }
+
+  &__avatar, &__pattern {
+    & .DgnResponsiveImage__image {
+      border-radius: spacing(2);
+    }
+  }
+
+  &__fullName {
+    margin-bottom: spacing(.5);
+  }
+
+  &__fullName, &__occupation {
+    text-align: center;
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__pattern {
+    left: spacing(2);
+    position: absolute;
+    top: spacing(2);
+  }
+}

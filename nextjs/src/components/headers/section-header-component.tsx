@@ -10,11 +10,14 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/section-header-component.scss';
 
 const SectionHeaderComponent: FC<SectionHeaderComponentProps> = ({
-  chipLabel, className, description, testId, title
+  chipLabel, className, description, position = 'left', testId, title
 }) => (
   <header
     className={cn('sectionHeader', {
-      additionalClassNames: className
+      additionalClassNames: className,
+      modifiers: {
+        position
+      }
     })}
     data-testid={testId}
   >

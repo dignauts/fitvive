@@ -67,8 +67,10 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    employees: Employee;
     media: Media;
     messages: Message;
+    occupations: Occupation;
     pages: Page;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
@@ -77,8 +79,10 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    employees: EmployeesSelect<false> | EmployeesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     messages: MessagesSelect<false> | MessagesSelect<true>;
+    occupations: OccupationsSelect<false> | OccupationsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -127,6 +131,20 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "employees".
+ */
+export interface Employee {
+  id: number;
+  avatar?: (number | null) | Media;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  occupation: number | Occupation;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
@@ -143,6 +161,17 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "occupations".
+ */
+export interface Occupation {
+  id: number;
+  name: string;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -249,6 +278,32 @@ export interface Page {
               };
               description?: string | null;
             };
+            employees?: (number | Employee)[] | null;
+            redirectButton?: RedirectButton;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'EMPLOYEES';
+          }
+        | {
+            header: {
+              chipLabel?: string | null;
+              title: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              description?: string | null;
+            };
             faq?:
               | {
                   question: string;
@@ -278,6 +333,14 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RedirectButton".
+ */
+export interface RedirectButton {
+  label?: string | null;
+  page?: (number | null) | Page;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -311,12 +374,20 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
+        relationTo: 'employees';
+        value: number | Employee;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
     | ({
         relationTo: 'messages';
         value: number | Message;
+      } | null)
+    | ({
+        relationTo: 'occupations';
+        value: number | Occupation;
       } | null)
     | ({
         relationTo: 'pages';
@@ -370,6 +441,19 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "employees_select".
+ */
+export interface EmployeesSelect<T extends boolean = true> {
+  avatar?: T;
+  fullName?: T;
+  email?: T;
+  phoneNumber?: T;
+  occupation?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -400,6 +484,16 @@ export interface MessagesSelect<T extends boolean = true> {
       };
   subject?: T;
   message?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "occupations_select".
+ */
+export interface OccupationsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -436,6 +530,21 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        EMPLOYEES?:
+          | T
+          | {
+              header?:
+                | T
+                | {
+                    chipLabel?: T;
+                    title?: T;
+                    description?: T;
+                  };
+              employees?: T;
+              redirectButton?: T | RedirectButtonSelect<T>;
+              id?: T;
+              blockName?: T;
+            };
         FAQ?:
           | T
           | {
@@ -459,6 +568,14 @@ export interface PagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RedirectButton_select".
+ */
+export interface RedirectButtonSelect<T extends boolean = true> {
+  label?: T;
+  page?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

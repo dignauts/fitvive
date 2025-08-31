@@ -1,29 +1,12 @@
 import { Field } from 'payload';
 
+import { PersonField } from '@/fields/person-field';
+
 export const PersonalDataField: Field = {
   admin: {
     position: 'sidebar'
   },
-  fields: [
-    {
-      label: 'Full name',
-      name: 'fullName',
-      required: true,
-      type: 'text'
-    },
-    {
-      label: 'E-mail address',
-      name: 'email',
-      required: true,
-      type: 'text'
-    },
-    {
-      label: 'Phone number',
-      name: 'phoneNumber',
-      required: true,
-      type: 'text'
-    }
-  ],
+  fields: PersonField,
   name: 'personalData',
   type: 'group'
 };
