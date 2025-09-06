@@ -9,7 +9,7 @@ import '@/scss/block-component.scss';
 const cn = createClassNameManager('block');
 
 const BlockComponent: FC<BlockComponentProps> = ({
-  children, className, enableMarginBottom, header, position, testId
+  children, className, enableMarginBottom, header, outside, position, testId
 }) => (
   <BaseBlockComponent
     className={cn({
@@ -18,6 +18,7 @@ const BlockComponent: FC<BlockComponentProps> = ({
         enableMarginBottom
       }
     })}
+    outside={outside}
     testId={testId}
   >
     <SectionHeaderComponent

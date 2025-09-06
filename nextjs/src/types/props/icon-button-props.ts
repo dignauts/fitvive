@@ -5,7 +5,7 @@ import { BaseComponentProps } from '@/types/props/common-props';
 
 export interface IconButtonComponentProps extends BaseComponentProps {
   children: ReactNode;
-  color?: 'neutral' | 'secondary';
+  color?: 'neutral' | 'primary' | 'secondary';
   component?: 'button' | 'div';
   linkProps?: Omit<LinkType, 'name'>
   size?: 'medium';

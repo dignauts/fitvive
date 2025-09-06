@@ -72,6 +72,8 @@ export interface Config {
     messages: Message;
     occupations: Occupation;
     pages: Page;
+    programs: Program;
+    'quick-news': QuickNew;
     users: User;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +86,8 @@ export interface Config {
     messages: MessagesSelect<false> | MessagesSelect<true>;
     occupations: OccupationsSelect<false> | OccupationsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    programs: ProgramsSelect<false> | ProgramsSelect<true>;
+    'quick-news': QuickNewsSelect<false> | QuickNewsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -329,6 +333,13 @@ export interface Page {
             blockName?: string | null;
             blockType: 'FAQ';
           }
+        | ProgramsBlock
+        | {
+            quickNews: (number | QuickNew)[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'QUICK_NEWS_MARQUEE';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -341,6 +352,70 @@ export interface Page {
 export interface RedirectButton {
   label?: string | null;
   page?: (number | null) | Page;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProgramsBlock".
+ */
+export interface ProgramsBlock {
+  header: {
+    chipLabel?: string | null;
+    title: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    description?: string | null;
+  };
+  programs: (number | Program)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'PROGRAMS';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "programs".
+ */
+export interface Program {
+  id: number;
+  icon: number | Media;
+  title: string;
+  description: string;
+  page?: (number | null) | Page;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quick-news".
+ */
+export interface QuickNew {
+  id: number;
+  /**
+   * The text that will appear as the clickable label for this link.
+   */
+  label: string;
+  /**
+   * Select whether this link points to an internal page or an external website.
+   */
+  type: 'internal' | 'external';
+  internalLink?: (number | null) | Page;
+  /**
+   * Full external URL, e.g. https://example.com
+   */
+  externalLink?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -392,6 +467,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'programs';
+        value: number | Program;
+      } | null)
+    | ({
+        relationTo: 'quick-news';
+        value: number | QuickNew;
       } | null)
     | ({
         relationTo: 'users';
@@ -565,6 +648,14 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        PROGRAMS?: T | ProgramsBlockSelect<T>;
+        QUICK_NEWS_MARQUEE?:
+          | T
+          | {
+              quickNews?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -576,6 +667,46 @@ export interface PagesSelect<T extends boolean = true> {
 export interface RedirectButtonSelect<T extends boolean = true> {
   label?: T;
   page?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProgramsBlock_select".
+ */
+export interface ProgramsBlockSelect<T extends boolean = true> {
+  header?:
+    | T
+    | {
+        chipLabel?: T;
+        title?: T;
+        description?: T;
+      };
+  programs?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "programs_select".
+ */
+export interface ProgramsSelect<T extends boolean = true> {
+  icon?: T;
+  title?: T;
+  description?: T;
+  page?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "quick-news_select".
+ */
+export interface QuickNewsSelect<T extends boolean = true> {
+  label?: T;
+  type?: T;
+  internalLink?: T;
+  externalLink?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

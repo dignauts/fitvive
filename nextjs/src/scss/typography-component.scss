@@ -34,6 +34,10 @@
     @include typography("d2");
   }
 
+  &--variantH1 {
+    @include typography("h1");
+  }
+
   &--variantH2 {
     @include typography("h2");
   }

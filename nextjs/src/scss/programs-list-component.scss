@@ -1,0 +1,15 @@
+@use 'utils/color-util.scss' as *;
+
+.DgnProgramsList {
+  & .DgnBaseList__listItem {
+    border-bottom: 1px solid color('neutral', 800);
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    &:first-of-type {
+      border-top: 1px solid color('neutral', 800);
+    }
+  }
+}

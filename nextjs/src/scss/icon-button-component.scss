@@ -20,6 +20,11 @@
         color: color('secondary', 800);
       }
 
+      &--colorPrimary {
+        background: color('primary', 500);
+        color: color('neutral', 900);
+      }
+
       &--colorSecondary {
         background: color('secondary', 800);
         color: color('neutral', 50);

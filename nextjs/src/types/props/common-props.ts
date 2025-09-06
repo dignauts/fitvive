@@ -1,6 +1,6 @@
-import { ReactNode, SVGProps } from 'react';
+import { SVGProps } from 'react';
 
-import { CatchAllPagesType } from '@/types/common-types';
+import { CatchAllPagesType, ChildrenType } from '@/types/common-types';
 
 export interface BaseComponentProps {
   className?: string;
@@ -8,7 +8,7 @@ export interface BaseComponentProps {
 }
 
 export interface BaseComponentWithChildrenProps extends BaseComponentProps {
-  children?: ReactNode | ReactNode[];
+  children?: ChildrenType
 }
 
 export type BaseIconComponentProps = BaseComponentProps & SVGProps<SVGSVGElement>;
@@ -16,3 +16,4 @@ export type BaseIconComponentProps = BaseComponentProps & SVGProps<SVGSVGElement
 export interface CatchAllDynamicPageProps {
   params: Promise<CatchAllPagesType>
 }
+

@@ -6,13 +6,14 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/base-block-component.scss';
 
 const BaseBlockComponent: FC<BaseBlockComponentProps> = ({
-  children, className, component: Component = 'section',
-  maxWidth, paddingY = 'md', testId, withPadding
+  children, className, color = 'secondary', component: Component = 'section',
+  maxWidth, outside, paddingY = 'md', testId, withPadding
 }) => (
   <Component
     className={cn('baseBlock', {
       additionalClassNames: className,
       modifiers: {
+        color,
         paddingY
       }
     })}
@@ -25,6 +26,7 @@ const BaseBlockComponent: FC<BaseBlockComponentProps> = ({
     >
       {children}
     </ContainerComponent>
+    {outside}
   </Component>
 );
 

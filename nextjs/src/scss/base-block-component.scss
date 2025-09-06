@@ -2,9 +2,19 @@
 @use 'utils/spacing-util.scss' as *;
 
 .DgnBaseBlock {
-  background: color('secondary', 900);
+  &--colorPrimary {
+    background: color('primary', 500);
+  }
+
+  &--colorSecondary {
+    background: color('secondary', 900);
+  }
 
   &--paddingY {
+    &Xsm {
+      padding-block: spacing(2);
+    }
+
     &Sm {
       padding-block: spacing(4);
     }

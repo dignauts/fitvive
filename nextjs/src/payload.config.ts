@@ -13,6 +13,8 @@ import { MediaCollection } from '@/collections/media-collection';
 import { MessagesCollection } from '@/collections/messages-collection';
 import { OccupationsCollection } from '@/collections/occupations-collection';
 import { PagesCollection } from '@/collections/pages-collection';
+import { ProgramsCollection } from '@/collections/programs-collection';
+import { QuickNewsCollection } from '@/collections/quick-news-collection';
 import { UsersCollection } from '@/collections/users-collection';
 import { ContactDetailsGlobal } from '@/globals/contact-details-global';
 import { FooterGlobal } from '@/globals/footer-global';
@@ -34,6 +36,8 @@ export default buildConfig({
     MessagesCollection,
     OccupationsCollection,
     PagesCollection,
+    ProgramsCollection,
+    QuickNewsCollection,
     UsersCollection
   ],
   globals: [

@@ -2,6 +2,8 @@ import ContactBlockComponent from '@/components/blocks/contact-block-component';
 import EmployeesBlockComponent from '@/components/blocks/employees-block-component';
 import FaqBlockComponent from '@/components/blocks/faq-block-component';
 import HeaderBlockComponent from '@/components/blocks/header-block-component';
+import ProgramsBlockComponent from '@/components/blocks/programs-block-component';
+import QuickNewsMarqueeBlockComponent from '@/components/blocks/quick-news-marquee-block-component';
 import { ASSET } from '@/constants/assets-constants';
 import { BLOCK_TYPE } from '@/constants/blocks-constants';
 import { getPageBySlug } from '@/services/get/get-page-by-slug';
@@ -30,20 +32,21 @@ export async function generateMetadata({ params }: CatchAllDynamicPageProps) {
 const blocks = {
   [BLOCK_TYPE.CONTACT_FORM]: ContactBlockComponent,
   [BLOCK_TYPE.EMPLOYEES]: EmployeesBlockComponent,
-  [BLOCK_TYPE.FAQ]: FaqBlockComponent
+  [BLOCK_TYPE.FAQ]: FaqBlockComponent,
+  [BLOCK_TYPE.PROGRAMS]: ProgramsBlockComponent,
+  [BLOCK_TYPE.QUICK_NEWS_MARQUEE]: QuickNewsMarqueeBlockComponent
 } as const;
 
 const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
-
-  console.log(page);
 
   return !page ? <div>Not found</div> : (
     <>
       {page.isBreadcrumbsVisible && <HeaderBlockComponent pageTitle={page.pageTitle} />}
       {
         page.layout && page.layout.map(({ id, ...section }) => {
-          const Component = blocks[section.blockType];
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const Component = blocks[section.blockType] as any;
 
           if (!Component) return null;
 

@@ -1,0 +1,13 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnQuickNewsMarquee {
+  &__item {
+    margin-right: spacing(5);
+
+    &:hover{
+      color: color('secondary', 800);
+      text-decoration: underline;
+    }
+  }
+}

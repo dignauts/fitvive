@@ -71,6 +71,10 @@
   --dgn-color-warning-800: 133, 77, 14;
   --dgn-color-warning-900: 113, 63, 18;
 
+  /* Filters */
+  --dgn-filter-color-neutral-900: brightness(0) saturate(100%) invert(0%) sepia(82%) saturate(7500%) hue-rotate(13deg) brightness(117%) contrast(117%);
+  --dgn-filter-color-primary-500: brightness(0) saturate(100%) invert(95%) sepia(26%) saturate(3388%) hue-rotate(16deg) brightness(97%) contrast(106%);
+
   /* Typography | Variants */
   --dgn-text-body: 1rem;
   --dgn-text-body-line-height: 125%;
@@ -91,6 +95,11 @@
   --dgn-text-h5-line-height: 125%;
   --dgn-text-h6: 1rem;
   --dgn-text-h6-line-height: 125%;
+}
+
+::selection {
+  background: rgb(var(--dgn-color-error-500));
+  color: rgb(var(--dgn-color-neutral-900))
 }
 
 a {
