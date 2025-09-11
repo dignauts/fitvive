@@ -1,0 +1,13 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnPricingBlock {
+  &__subscriptionsList {
+    display: grid;
+    gap: spacing(4);
+    grid-template-columns: repeat(3, 1fr);
+
+    & .DgnSubscriptionItem {
+      max-width: 100%;
+    }
+  }
+}

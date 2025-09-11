@@ -13,6 +13,8 @@ import { MediaCollection } from '@/collections/media-collection';
 import { MessagesCollection } from '@/collections/messages-collection';
 import { OccupationsCollection } from '@/collections/occupations-collection';
 import { PagesCollection } from '@/collections/pages-collection';
+import { PricingCollection } from '@/collections/pricing-collection';
+import { PricingFeaturesCollection } from '@/collections/pricing-features-collection';
 import { ProgramsCollection } from '@/collections/programs-collection';
 import { QuickNewsCollection } from '@/collections/quick-news-collection';
 import { UsersCollection } from '@/collections/users-collection';
@@ -36,6 +38,8 @@ export default buildConfig({
     MessagesCollection,
     OccupationsCollection,
     PagesCollection,
+    PricingCollection,
+    PricingFeaturesCollection,
     ProgramsCollection,
     QuickNewsCollection,
     UsersCollection

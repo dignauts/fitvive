@@ -1,0 +1,15 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnAdvantagesList {
+  &__title {
+    margin-bottom: spacing(3);
+  }
+
+  & .DgnBaseList__listItem {
+    margin-bottom: spacing(3);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

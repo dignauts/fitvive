@@ -5,6 +5,7 @@ import { EmployeesBlock } from '@/fields/blocks/employees-block';
 import { FaqBlock } from '@/fields/blocks/faq-block';
 import { ProgramsBlock } from '@/fields/blocks/programs-block';
 import { QuickNewsBlock } from '@/fields/blocks/quick-news-block';
+import { SubscriptionBlock } from '@/fields/blocks/subscription-block';
 
 export const BlocksField: Field = {
   admin: {
@@ -15,6 +16,7 @@ export const BlocksField: Field = {
     EmployeesBlock,
     FaqBlock,
     ProgramsBlock,
+    SubscriptionBlock,
     QuickNewsBlock
   ],
   name: 'layout',

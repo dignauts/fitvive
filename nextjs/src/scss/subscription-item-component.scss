@@ -1,0 +1,44 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnSubscriptionItem {
+  background: color('neutral', 800, .4);
+  border-radius: spacing(2);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(4);
+  max-width: 332px;
+  padding: spacing(3);
+
+  &__description, &__title, &__value {
+    color: inherit;
+  }
+
+  &__icon {
+    margin-bottom: spacing(2);
+  }
+
+  &__period {
+    color: color('neutral', 50, .75);
+    text-transform: capitalize;
+  }
+
+  &__price {
+    align-items: center;
+    display: flex;
+    gap: spacing(.5);
+  }
+
+  &__title {
+    margin-bottom: spacing(.5);
+  }
+
+  &--isRecommended { 
+    background: color('primary', 500);
+    color: color('secondary', 800);
+
+    & .DgnAdvantagesList__title, & .DgnSubscriptionItem__period {
+      color: color('secondary', 800);
+    }
+  }
+}

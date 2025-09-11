@@ -6,7 +6,7 @@ import '@/scss/typography-component.scss';
 
 const TypographyComponent: FC<TypographyComponentProps> = ({
   capitalize, children, className, color = 'primary', component = 'p',
-  labelProps, linkProps, onClick, variant = 'body', weight = 'regular', withWhitespace
+  labelProps, linkProps, onClick, uppercase, variant = 'body', weight = 'regular', withWhitespace
 }) => {
   const Component = (linkProps?.href ? 'a' : component) as TypographyComponentType;
 
@@ -18,6 +18,7 @@ const TypographyComponent: FC<TypographyComponentProps> = ({
           capitalize,
           color,
           link: !!linkProps?.href,
+          uppercase,
           variant,
           weight,
           withWhitespace

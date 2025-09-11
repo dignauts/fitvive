@@ -1,0 +1,11 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnAdvantage {
+  align-items: center;
+  display: flex;
+  gap: spacing(1);
+
+  &__text {
+    color: inherit;
+  }
+}

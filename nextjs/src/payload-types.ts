@@ -72,6 +72,8 @@ export interface Config {
     messages: Message;
     occupations: Occupation;
     pages: Page;
+    pricing: Pricing;
+    'pricing-features': PricingFeature;
     programs: Program;
     'quick-news': QuickNew;
     users: User;
@@ -86,6 +88,8 @@ export interface Config {
     messages: MessagesSelect<false> | MessagesSelect<true>;
     occupations: OccupationsSelect<false> | OccupationsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    pricing: PricingSelect<false> | PricingSelect<true>;
+    'pricing-features': PricingFeaturesSelect<false> | PricingFeaturesSelect<true>;
     programs: ProgramsSelect<false> | ProgramsSelect<true>;
     'quick-news': QuickNewsSelect<false> | QuickNewsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -335,6 +339,31 @@ export interface Page {
           }
         | ProgramsBlock
         | {
+            header: {
+              chipLabel?: string | null;
+              title: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              description?: string | null;
+            };
+            subscriptions?: (number | Pricing)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'SUBSCRIPTION';
+          }
+        | {
             quickNews: (number | QuickNew)[];
             id?: string | null;
             blockName?: string | null;
@@ -392,6 +421,34 @@ export interface Program {
   title: string;
   description: string;
   page?: (number | null) | Page;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricing".
+ */
+export interface Pricing {
+  id: number;
+  isRecommended?: boolean | null;
+  icon: number | Media;
+  title: string;
+  description: string;
+  prices: {
+    monthly: number;
+    yearly: number;
+  };
+  features: (number | PricingFeature)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricing-features".
+ */
+export interface PricingFeature {
+  id: number;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -467,6 +524,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'pricing';
+        value: number | Pricing;
+      } | null)
+    | ({
+        relationTo: 'pricing-features';
+        value: number | PricingFeature;
       } | null)
     | ({
         relationTo: 'programs';
@@ -649,6 +714,20 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
         PROGRAMS?: T | ProgramsBlockSelect<T>;
+        SUBSCRIPTION?:
+          | T
+          | {
+              header?:
+                | T
+                | {
+                    chipLabel?: T;
+                    title?: T;
+                    description?: T;
+                  };
+              subscriptions?: T;
+              id?: T;
+              blockName?: T;
+            };
         QUICK_NEWS_MARQUEE?:
           | T
           | {
@@ -683,6 +762,34 @@ export interface ProgramsBlockSelect<T extends boolean = true> {
   programs?: T;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricing_select".
+ */
+export interface PricingSelect<T extends boolean = true> {
+  isRecommended?: T;
+  icon?: T;
+  title?: T;
+  description?: T;
+  prices?:
+    | T
+    | {
+        monthly?: T;
+        yearly?: T;
+      };
+  features?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricing-features_select".
+ */
+export interface PricingFeaturesSelect<T extends boolean = true> {
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

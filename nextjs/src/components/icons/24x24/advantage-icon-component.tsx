@@ -1,0 +1,17 @@
+import { FC } from 'react';
+
+import BaseIconComponent from '@/components/icons/base-icon-component';
+import { BaseIconComponentProps } from '@/types/props/common-props';
+
+const AdvantageIconComponent: FC<BaseIconComponentProps> = ({
+  className, fill = 'currentColor'
+}) => (
+  <BaseIconComponent className={className}>
+    <path
+      d="M19.965 9.40967C19.988 9.23567 20 9.06167 20 8.88867C20 6.50967 17.857 4.60067 15.479 4.92367C14.786 3.69067 13.466 2.88867 12 2.88867C10.534 2.88867 9.214 3.69067 8.521 4.92367C6.138 4.60067 4 6.50967 4 8.88867C4 9.06167 4.012 9.23567 4.035 9.40967C2.802 10.1037 2 11.4237 2 12.8887C2 14.3537 2.802 15.6737 4.035 16.3677C4.01193 16.5404 4.00024 16.7144 4 16.8887C4 19.2677 6.138 21.1717 8.521 20.8537C9.214 22.0867 10.534 22.8887 12 22.8887C13.466 22.8887 14.786 22.0867 15.479 20.8537C17.857 21.1717 20 19.2677 20 16.8887C20 16.7157 19.988 16.5417 19.965 16.3677C21.198 15.6737 22 14.3537 22 12.8887C22 11.4237 21.198 10.1037 19.965 9.40967ZM10.955 17.3047L7.288 13.5907L8.712 12.1867L10.969 14.4727L15.296 10.1787L16.704 11.5987L10.955 17.3047Z"
+      fill={fill}
+    />
+  </BaseIconComponent>
+);
+
+export default AdvantageIconComponent;

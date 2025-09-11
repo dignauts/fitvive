@@ -1,11 +1,6 @@
-import ContactBlockComponent from '@/components/blocks/contact-block-component';
-import EmployeesBlockComponent from '@/components/blocks/employees-block-component';
-import FaqBlockComponent from '@/components/blocks/faq-block-component';
 import HeaderBlockComponent from '@/components/blocks/header-block-component';
-import ProgramsBlockComponent from '@/components/blocks/programs-block-component';
-import QuickNewsMarqueeBlockComponent from '@/components/blocks/quick-news-marquee-block-component';
 import { ASSET } from '@/constants/assets-constants';
-import { BLOCK_TYPE } from '@/constants/blocks-constants';
+import { sections } from '@/constants/sections-constants';
 import { getPageBySlug } from '@/services/get/get-page-by-slug';
 import { CatchAllDynamicPageProps } from '@/types/props/common-props';
 
@@ -29,14 +24,6 @@ export async function generateMetadata({ params }: CatchAllDynamicPageProps) {
   };
 }
 
-const blocks = {
-  [BLOCK_TYPE.CONTACT_FORM]: ContactBlockComponent,
-  [BLOCK_TYPE.EMPLOYEES]: EmployeesBlockComponent,
-  [BLOCK_TYPE.FAQ]: FaqBlockComponent,
-  [BLOCK_TYPE.PROGRAMS]: ProgramsBlockComponent,
-  [BLOCK_TYPE.QUICK_NEWS_MARQUEE]: QuickNewsMarqueeBlockComponent
-} as const;
-
 const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
   const page = await getPageBySlug({ params });
 
@@ -46,9 +33,11 @@ const PageWithPrimaryLayout = async ({ params }: CatchAllDynamicPageProps) => {
       {
         page.layout && page.layout.map(({ id, ...section }) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const Component = blocks[section.blockType] as any;
+          const Component = sections[section.blockType] as any;
 
           if (!Component) return null;
+
+          console.log(section);
 
           return (
             <Component key={id} {...section} />

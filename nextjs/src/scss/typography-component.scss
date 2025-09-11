@@ -22,6 +22,10 @@
     }
   }
 
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
   &--variantBody {
     @include typography("body");
   }
@@ -32,6 +36,10 @@
 
   &--variantD2 {
     @include typography("d2");
+  }
+
+  &--variantD5 {
+    @include typography("d5");
   }
 
   &--variantH1 {

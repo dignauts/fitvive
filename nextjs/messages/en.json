@@ -10,6 +10,9 @@
     "quick_links": "Quick links"
   },
   "component": {
+    "pricing": {
+      "advantages_list_title": "What it includes"
+    },
     "quick_contact": {
       "title": "Visit or contact us directly"
     }
