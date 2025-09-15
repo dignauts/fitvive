@@ -1,5 +1,5 @@
 import { BaseComponentProps } from '@/types/props/common-props';
-import { RichTextContentType } from '@/types/props/rich-text-props';
+import { RichTextComponentProps, RichTextContentType } from '@/types/props/rich-text-props';
 
 export type SectionHeaderProps = {
   chipLabel?: null | string;
@@ -9,4 +9,5 @@ export type SectionHeaderProps = {
 
 export interface SectionHeaderComponentProps extends BaseComponentProps, SectionHeaderProps {
   position?: 'center' | 'left';
+  titleProps?: Pick<RichTextComponentProps, 'variant' | 'weight'>;
 }

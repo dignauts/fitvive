@@ -1,0 +1,14 @@
+@use 'utils/spacing-util.scss' as *;
+
+.DgnLinkButtons {
+  display: flex;
+  gap: spacing(3);
+
+  &--positionCenter {
+    justify-content: center;
+  }
+
+  &--positionRight {
+    justify-content: flex-end;
+  }
+}

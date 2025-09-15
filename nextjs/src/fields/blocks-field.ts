@@ -3,6 +3,7 @@ import { Field } from 'payload';
 import { ContactFormBlock } from '@/fields/blocks/contact-form-block';
 import { EmployeesBlock } from '@/fields/blocks/employees-block';
 import { FaqBlock } from '@/fields/blocks/faq-block';
+import { HeroBlock } from '@/fields/blocks/hero-block';
 import { ProgramsBlock } from '@/fields/blocks/programs-block';
 import { QuickNewsBlock } from '@/fields/blocks/quick-news-block';
 import { SubscriptionBlock } from '@/fields/blocks/subscription-block';
@@ -15,6 +16,7 @@ export const BlocksField: Field = {
     ContactFormBlock,
     EmployeesBlock,
     FaqBlock,
+    HeroBlock,
     ProgramsBlock,
     SubscriptionBlock,
     QuickNewsBlock

@@ -33,6 +33,11 @@
         pointer-events: none;
       }
 
+      &--sizeLarge {
+        padding-block: spacing(3);
+        padding-inline: spacing(6);
+      }
+
       &--sizeMedium {
         padding-block: spacing(2);
         padding-inline: spacing(4);

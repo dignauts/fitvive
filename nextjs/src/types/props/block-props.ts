@@ -3,7 +3,7 @@ import { BaseComponentWithChildrenProps } from '@/types/props/common-props';
 import { SectionHeaderComponentProps, SectionHeaderProps } from '@/types/props/section-header-props';
 
 export interface BlockComponentProps extends BaseComponentWithChildrenProps,
-  Pick<BaseBlockComponentProps, 'outside'>, Pick<SectionHeaderComponentProps, 'position'> {
+  Pick<BaseBlockComponentProps, 'outside'>, Pick<SectionHeaderComponentProps, 'position' | 'titleProps'> {
   enableMarginBottom?: boolean;
   header: SectionHeaderProps;
 }

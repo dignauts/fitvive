@@ -337,6 +337,49 @@ export interface Page {
             blockName?: string | null;
             blockType: 'FAQ';
           }
+        | {
+            header: {
+              chipLabel?: string | null;
+              title: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              description?: string | null;
+            };
+            links?:
+              | {
+                  /**
+                   * The text that will appear as the clickable label for this link.
+                   */
+                  label: string;
+                  /**
+                   * Select whether this link points to an internal page or an external website.
+                   */
+                  type: 'internal' | 'external';
+                  internalLink?: (number | null) | Page;
+                  /**
+                   * Full external URL, e.g. https://example.com
+                   */
+                  externalLink?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            image?: (number | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'HERO';
+          }
         | ProgramsBlock
         | {
             header: {
@@ -710,6 +753,29 @@ export interface PagesSelect<T extends boolean = true> {
                     answer?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        HERO?:
+          | T
+          | {
+              header?:
+                | T
+                | {
+                    chipLabel?: T;
+                    title?: T;
+                    description?: T;
+                  };
+              links?:
+                | T
+                | {
+                    label?: T;
+                    type?: T;
+                    internalLink?: T;
+                    externalLink?: T;
+                    id?: T;
+                  };
+              image?: T;
               id?: T;
               blockName?: T;
             };

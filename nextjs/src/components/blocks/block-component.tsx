@@ -9,7 +9,7 @@ import '@/scss/block-component.scss';
 const cn = createClassNameManager('block');
 
 const BlockComponent: FC<BlockComponentProps> = ({
-  children, className, enableMarginBottom, header, outside, position, testId
+  children, className, enableMarginBottom, header, outside, position, testId, titleProps
 }) => (
   <BaseBlockComponent
     className={cn({
@@ -25,6 +25,7 @@ const BlockComponent: FC<BlockComponentProps> = ({
       className={cn({ element: 'header' })}
       position={position}
       {...header}
+      titleProps={titleProps}
     />
     {children}
   </BaseBlockComponent>

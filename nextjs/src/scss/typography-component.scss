@@ -34,6 +34,10 @@
     @include typography("caption");
   }
 
+  &--variantD1 {
+    @include typography("d1");
+  }
+
   &--variantD2 {
     @include typography("d2");
   }

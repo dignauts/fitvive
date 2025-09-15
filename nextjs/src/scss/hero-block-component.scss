@@ -1,0 +1,46 @@
+@use 'utils/color-util.scss' as *;
+@use 'utils/spacing-util.scss' as *;
+
+.DgnHeroBlock {
+  position: relative;
+
+  & .DgnContainer {
+    position: relative;
+    z-index: 10;
+  }
+
+  &.DgnBlock--enableMarginBottom {
+    & .DgnBlock__header {
+      margin-bottom: spacing(6);
+    }
+  }
+
+  & .DgnSectionHeader {
+    &__description {
+      margin: 0 auto;
+      max-width: 780px;
+    }
+  }
+
+  &__flare {
+    background: color('primary', 500, .5);
+    border-radius: spacing(25);
+    filter: blur(spacing(25));
+    height: 375px;
+    left: 50%;
+    max-width: 900px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 0;
+  }
+
+  &__image {
+    margin-top: spacing(10);
+
+    & .DgnResponsiveImage__image {
+      border-radius: spacing(25);
+    }
+  }
+}

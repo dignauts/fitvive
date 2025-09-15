@@ -10,7 +10,8 @@ import { cn } from '@/utils/cn-util';
 import '@/scss/section-header-component.scss';
 
 const SectionHeaderComponent: FC<SectionHeaderComponentProps> = ({
-  chipLabel, className, description, position = 'left', testId, title
+  chipLabel, className, description,
+  position = 'left', testId, title, titleProps
 }) => (
   <header
     className={cn('sectionHeader', {
@@ -31,8 +32,8 @@ const SectionHeaderComponent: FC<SectionHeaderComponentProps> = ({
     )}
     <RichTextComponent
       color='highlighted'
-      variant='h1'
-      weight='bold'
+      variant={titleProps?.variant || 'h1'}
+      weight={titleProps?.weight || 'bold'}
     >
       {title}
     </RichTextComponent>

@@ -6,7 +6,7 @@ export interface ButtonComponentProps extends BaseComponentProps {
   color?: 'primary';
   isDisabled?: boolean;
   linkProps?: Omit<LinkType, 'name'>;
-  size?: 'medium';
+  size?: 'large' | 'medium';
   type?: 'submit' | 'reset' | 'button';
   variant?: 'contained';
 }
